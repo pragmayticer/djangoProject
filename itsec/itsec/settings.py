@@ -25,9 +25,17 @@ SECRET_KEY = 'uh17jb^&jt5k@g*5=x%@h%b+(xe@1w8twv=7ezyo0uev-1+#t*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+#SECURE_PROXY_SSL_HEADER = True
 
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+LOGIN_URL = 'mysite_login'
+LOGOUT_URL = 'mysite_logout'
+LOGIN_REDIRECT_URL = 'marcador_bookmark_list'
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'itsecapp'
+    'itsecapp',
+    #'django-werkzeug-debugger-runserver',
+    'django_extensions',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -67,6 +78,22 @@ TEMPLATES = [
         },
     },
 ]
+
+# LOGGING = {
+#     'handlers': {
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'werkzeug': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         },
+#     },
+# }
 
 WSGI_APPLICATION = 'itsec.wsgi.application'
 
