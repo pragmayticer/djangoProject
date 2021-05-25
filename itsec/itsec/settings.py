@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,11 +31,7 @@ CSRF_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = True
 #SECURE_PROXY_SSL_HEADER = True
 
-
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
-LOGIN_URL = 'mysite_login'
-LOGOUT_URL = 'mysite_logout'
-LOGIN_REDIRECT_URL = 'marcador_bookmark_list'
+LOGIN_REDIRECT_URL='admin/home'
 # Application definition
 
 INSTALLED_APPS = [
