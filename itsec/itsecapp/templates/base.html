@@ -19,7 +19,7 @@
             </li>
             {% else %}
                       <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                <a class="nav-link" href="{% url 'my_login' %}">Login</a>
             </li>
             {% endif %}
         </ul>
@@ -36,12 +36,12 @@
             <th scope="col">Login</th>
         </thead>
         <tbody>
-        {% for machine in list %}
+        {% for machine in posts %}
         <tr>
+            <td>{{ machine.RFID_Id }}</td>
             <td>{{ machine.name }}</td>
-            <td>{{ machine.description }}</td>
-            <td>{{ machine.description }}</td>
-            <td>{{ machine.description }}</td>
+            <td>{{ machine.login }}</td>
+            <td>{{ machine.user }}</td>
 
         </tr>
         {% endfor %}

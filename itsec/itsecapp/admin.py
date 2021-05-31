@@ -1,3 +1,4 @@
 from django.contrib import admin
+from .models import RFID_Daten
 
-# Register your models here.
+admin.site.register(RFID_Daten)

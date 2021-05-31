@@ -9,11 +9,8 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-import os
-from pathlib import Path
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,7 +28,9 @@ CSRF_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = True
 #SECURE_PROXY_SSL_HEADER = True
 
-LOGIN_REDIRECT_URL='admin/home'
+#LOGIN_URL='login'
+#LOGOUT_URL='logout'
+#LOGIN_REDIRECT_URL='admin/home'
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,9 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'itsecapp',
-    #'django-werkzeug-debugger-runserver',
-    'django_extensions',
-    'crispy_forms'
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
@@ -75,21 +72,6 @@ TEMPLATES = [
     },
 ]
 
-# LOGGING = {
-#     'handlers': {
-#         'console': {
-#             'level': 'DEBUG',
-#             'class': 'logging.StreamHandler',
-#         },
-#     },
-#     'loggers': {
-#         'werkzeug': {
-#             'handlers': ['console'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#     },
-# }
 
 WSGI_APPLICATION = 'itsec.wsgi.application'
 
@@ -97,10 +79,15 @@ WSGI_APPLICATION = 'itsec.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ITSEC',
+        'USER': 'root',
+        'PASSWORD': 'HSalbstadt',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -141,4 +128,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
